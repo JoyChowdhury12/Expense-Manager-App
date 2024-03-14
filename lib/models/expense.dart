@@ -1,9 +1,7 @@
 import 'package:expense_manager/enums/category_enums.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
-import 'package:expense_manager/enums/category_enums.dart';
 
 final uuid = Uuid();
 final formatter = DateFormat.yMd();
