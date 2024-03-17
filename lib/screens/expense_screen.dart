@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../enums/category_enums.dart';
 import '../models/expense.dart';
 import '../widgets/expense_list.dart';
@@ -50,6 +49,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
     setState(() {
       _registeredExpenses.remove(expense);
     });
+    ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: Duration(seconds: 3),

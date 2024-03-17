@@ -85,7 +85,10 @@ class _NewExpenseState extends State<NewExpense> {
             maxLength: 50,
             decoration: InputDecoration(label: Text("Title")),
           ),
+          const SizedBox(width: 16),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
                 child: TextField(
@@ -95,9 +98,7 @@ class _NewExpenseState extends State<NewExpense> {
                       InputDecoration(prefixText: "\$", label: Text("Amount")),
                 ),
               ),
-              SizedBox(
-                width: 16,
-              ),
+              SizedBox(width: 16),
               Text(_selectedDate == null
                   ? "No Date Selected"
                   : formatter.format(_selectedDate!)),
@@ -105,6 +106,9 @@ class _NewExpenseState extends State<NewExpense> {
                   onPressed: _presentDatePicker,
                   icon: Icon(Icons.calendar_month))
             ],
+          ),
+          const SizedBox(
+            height: 16,
           ),
           Row(
             children: [
@@ -124,6 +128,7 @@ class _NewExpenseState extends State<NewExpense> {
                   });
                 },
               ),
+              const Spacer(),
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
