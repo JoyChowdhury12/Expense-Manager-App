@@ -30,6 +30,8 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(
       margin: EdgeInsets.all(16),
       padding: EdgeInsets.symmetric(
@@ -70,10 +72,12 @@ class Chart extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 4),
                         child: Icon(
                           categoryIcons[bucket.category],
-                          color: Theme.of(context)
-                              .colorScheme
-                              .primary
-                              .withOpacity(0.9),
+                          color: isDarkMode
+                              ? Colors.cyanAccent
+                              : Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(0.9),
                         ),
                       ),
                     ),

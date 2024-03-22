@@ -7,6 +7,8 @@ class ChartBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 4),
@@ -18,7 +20,9 @@ class ChartBar extends StatelessWidget {
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(8),
               ),
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.65),
+              color: isDarkMode
+                  ? Colors.cyanAccent
+                  : Theme.of(context).colorScheme.primary.withOpacity(0.65),
             ),
           ),
         ),
