@@ -1,4 +1,5 @@
 import 'package:expense_manager/enums/category_enums.dart';
+import 'package:expense_manager/widgets/chart_Bar.dart';
 import 'package:flutter/material.dart';
 
 import '../models/expense.dart';
@@ -45,6 +46,18 @@ class Chart extends StatelessWidget {
           ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
       child: Column(
         children: [
+          Expanded(
+            child: Row(
+              children: [
+                for (final bucket in buckets)
+                  ChartBar(
+                    fill: bucket.totalExpenses == 0
+                        ? 0
+                        : bucket.totalExpenses / maxTotalExpenses,
+                  ),
+              ],
+            ),
+          ),
           SizedBox(
             height: 32,
           ),
